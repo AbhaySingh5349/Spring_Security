@@ -40,6 +40,7 @@ public class SpringSecurityConfig {
     }
      */
 
+    /*
     @Bean
     UserDetailsManager users(DataSource dataSource) {
         // adding user using query:
@@ -68,6 +69,7 @@ public class SpringSecurityConfig {
         }
         return users;
     }
+     */
 
     // to specify which API can be accessed different authorities (authorization for routes)
     // API should have at least 1 of authorities assigned to users

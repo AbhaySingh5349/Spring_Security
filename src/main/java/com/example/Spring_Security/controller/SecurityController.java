@@ -1,5 +1,8 @@
 package com.example.Spring_Security.controller;
 
+import com.example.Spring_Security.model.CustomSecurityUser;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +20,9 @@ public class SecurityController {
 
     @GetMapping("/user")
     public String user(){
-        return "User Route";
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        CustomSecurityUser user =  (CustomSecurityUser) authentication.getPrincipal();
+        return "User Route for ".concat(user.getUsername());
     }
 
     @GetMapping("/admin")
