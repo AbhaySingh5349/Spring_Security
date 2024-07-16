@@ -4,6 +4,7 @@ import com.example.Spring_Security.model.CustomSecurityUser;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -28,5 +29,10 @@ public class SecurityController {
     @GetMapping("/admin")
     public String admin(){
         return "Admin Route";
+    }
+
+    @PostMapping("/postAPI")
+    public String post(){
+        return "post API";
     }
 }

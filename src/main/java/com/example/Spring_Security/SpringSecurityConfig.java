@@ -82,7 +82,8 @@ public class SpringSecurityConfig {
                         .requestMatchers("/spring-security").hasAnyAuthority("ADMIN", "USER")
                         .anyRequest().permitAll())
                 .formLogin(withDefaults()) // we need a login form for accessing authorized routes (browser)
-                .httpBasic(withDefaults()); // for postman, we need to provide "Basic Auth"
+                .httpBasic(withDefaults()) // for postman, we need to provide "Basic Auth"
+                .csrf(csrf -> csrf.disable()); // to enable post requests through POSTMAN
         return http.build();
     }
 
